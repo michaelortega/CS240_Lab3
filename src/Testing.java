@@ -13,9 +13,14 @@ public class Testing<T> {
 
 
     public static void main(String[] args) {
-        FoodInventory foodInventory = new FoodInventory();
-        foodInventory.randomFillInventory();
-        Menu menuTest = new Menu();
+//        FoodInventory foodInventory = new FoodInventory();
+//        foodInventory.randomFillInventory();
+//        Menu menuTest = new Menu();
+        Random random = new Random();
+
+        while (true){
+            System.out.println( random.nextInt(101-1)+ 1);
+        }
 
     }
 }

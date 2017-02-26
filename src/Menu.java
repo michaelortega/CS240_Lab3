@@ -14,14 +14,12 @@ public class Menu {
     public static final String ONION = "onion";
     public static final String CHEESE = "cheese";
 
-
     private int menuItem1Ctr;
     private int menuItem2Ctr;
     private int menuItem3Ctr;
     private int menuItem4Ctr;
     private int menuItem5Ctr;
     private int menuItem6Ctr;
-
 
     public Menu() {
         menuItem1Ctr = 0;
@@ -43,6 +41,29 @@ public class Menu {
         burgerList.useIngredients(foodInventory);
         menuItem1Ctr++;
     }
+
+    public void menuItem2(FoodInventory foodInventory) {
+        cheeseBurgerList.useIngredients(foodInventory);
+        menuItem2Ctr++;
+    }
+    public void menuItem3(FoodInventory foodInventory) {
+        veganBurgerList.useIngredients(foodInventory);
+        menuItem3Ctr++;
+    }
+    public void menuItem4(FoodInventory foodInventory) {
+        burgerNoOnionList.useIngredients(foodInventory);
+        menuItem4Ctr++;
+    }
+    public void menuItem5(FoodInventory foodInventory) {
+       cheeseBurgerList.useIngredients(foodInventory);
+        menuItem5Ctr++;
+    }
+    public void menuItem6(FoodInventory foodInventory) {
+        burgerNoTomatoList.useIngredients(foodInventory);
+        menuItem6Ctr++;
+    }
+
+
 
 }
 
