@@ -20,7 +20,6 @@ public class Customers {
     public void addCustomersToLine() {
         resetCustomers();
         randomCustomerNumber = numberOfCustomers();
-        //System.out.println("Number of customers entering: " + randomCustomerNumber);
         fillQueue(randomCustomerNumber);
     }
 
@@ -54,7 +53,7 @@ public class Customers {
         return random.nextInt(7 - 1) + 1;
     }
 
-    public void lostCustomersDisplay(String date){
+    public void lostCustomersDisplay(){
         System.out.println("Number of lost customers: " + lostCustomers);
     }
 

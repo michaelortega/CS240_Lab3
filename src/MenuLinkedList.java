@@ -238,7 +238,7 @@ public class MenuLinkedList<T> implements ListInterface<T> {
                         foodInventory.getCheeseStack().pop();
                         break;
                 }
-            } catch (EmptyQueueException | NoSuchElementException eQ) {
+            } catch (EmptyQueueException | NoSuchElementException eQ) { //
                 customers.addLostCustomer();
             } finally {
                 currentNode = currentNode.getNextNode();

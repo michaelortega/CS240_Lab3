@@ -15,6 +15,7 @@ public class TimeAndDate {
     private DateFormat intFormat;
     private DateFormat timeFormat;
     private DateFormat halfDateFormat;
+    private DateFormat reportFormat;
 
 
     public TimeAndDate() {
@@ -22,6 +23,7 @@ public class TimeAndDate {
         halfDateFormat = new SimpleDateFormat("MMddyyyy");
         intFormat = new SimpleDateFormat("Md");
         timeFormat = new SimpleDateFormat("HH:mm");
+        reportFormat = new SimpleDateFormat("MM-dd-yyyy");
         calendar = Calendar.getInstance();
         try {
             date = dateFormat.parse(startDate);
@@ -84,4 +86,7 @@ public static void main(String[] args) {
 
     }
 
+    public String getReportDate() {
+        return reportFormat.format(date);
+    }
 }

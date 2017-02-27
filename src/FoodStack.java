@@ -4,7 +4,7 @@ import java.util.NoSuchElementException;
 public class FoodStack<T extends Comparable> implements StackInterface<T> {
     private T [] stack;
     private int topOfStack;
-    private final int MAX_STORE_CAPACITY = 5000;
+    private final int MAX_STORE_CAPACITY = 10000;
 
 
     public FoodStack(){
@@ -36,7 +36,8 @@ public class FoodStack<T extends Comparable> implements StackInterface<T> {
             throw new NoSuchElementException();
         } else {
             T temp = stack[topOfStack];
-            stack[topOfStack--] = null;
+            stack[topOfStack] = null;
+            topOfStack--;
             return temp;
         }
 
@@ -78,38 +79,38 @@ public class FoodStack<T extends Comparable> implements StackInterface<T> {
         topOfStack = -1;
     }
 
-    public int getNumberOfitems(){
-        return topOfStack;
-    } // removeeeeeee
-
 
     public void sortInventory(){
-        this.insertionSort(stack);
+        this.selectionSort(stack);
     }
+    
 
-    public void insertionSort(T[] elems) {
-        int size = topOfStack;
-        for (int outerLoopIdx = 1; outerLoopIdx < size; ++outerLoopIdx) {
-            for (int innerLoopIdx = outerLoopIdx; innerLoopIdx > 0; --innerLoopIdx) {
-                if (elems[innerLoopIdx - 1].compareTo(elems[innerLoopIdx]) > 0) {
-                    T temp = elems[innerLoopIdx - 1];
-                    elems[innerLoopIdx - 1] = elems[innerLoopIdx];
-                    elems[innerLoopIdx] = temp;
+    public void selectionSort(T[] array) {
+
+        for (int sortedIndex = 0; sortedIndex < topOfStack + 1; sortedIndex++) {
+            for (int unsortedIndex = sortedIndex + 1; unsortedIndex < topOfStack+1; unsortedIndex++) {
+                int minimumIndex = sortedIndex;
+                if (array[unsortedIndex].compareTo(array[minimumIndex]) > 0) {
+                    minimumIndex = unsortedIndex;
                 }
+                T temp = array[minimumIndex];
+                array[minimumIndex] = array[sortedIndex];
+                array[sortedIndex] = temp;
+
             }
         }
     }
 
+
     public boolean isFull() {
         return (topOfStack+1)==MAX_STORE_CAPACITY;
     }
-//
-//    public void display(){
-//        for (T i: stack){
-//            System.out.println(i + " ");
-//        }
-//        System.out.println();
-//    }
+
+    public void display(){ // remove
+        for (int t = topOfStack; t > -1; t-- )
+            System.out.print(stack[t] + " ");
+        System.out.println();
+    }
 
 
 }

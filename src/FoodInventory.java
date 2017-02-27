@@ -52,6 +52,7 @@ public class FoodInventory {
 
     private void fillStack(FoodStack foodStack, int[] newInventory) {
 
+
         for (int i = 0; i < newInventory.length; i++) {
             if (foodStack.isFull()){
                 break;

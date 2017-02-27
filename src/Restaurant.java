@@ -4,11 +4,13 @@ public class Restaurant {
         FoodInventory foodInventory = new FoodInventory();
         Menu restaurantMenu = new Menu();
         Customers customers = new Customers();
+        int shipmentCounter = 0;
         while (!simulatedTime.isEndOfMarch()) {
             while (!simulatedTime.isOpen()) {
                 //add number of customers for that hour
-                if (simulatedTime.isRestockTime()){
+                if (simulatedTime.isRestockTime() && shipmentCounter ==3){
                     foodInventory.randomFillInventory(simulatedTime.dateToInt());
+                    shipmentCounter=0;
                 }
                 customers.addCustomersToLine();
                 while (!customers.isLineEmpty()) {
@@ -38,9 +40,16 @@ public class Restaurant {
                 simulatedTime.nextHour();
             }
             foodInventory.randomFillInventory(simulatedTime.dateToInt());
+            System.out.println("******************REPORT FOR "+ simulatedTime.getReportDate()+" ***************************");
+            System.out.println("                     *ORDER REPORT*                            ");
             restaurantMenu.displayMenuCount();
-            customers.lostCustomersDisplay(simulatedTime.getDate());
+
+            System.out.println("                     *LOST CUSTOMERS REPORT*                            ");
+            customers.lostCustomersDisplay();
             foodInventory.sortInventory();
+            shipmentCounter++;
+            //remove after testing
+            foodInventory.getBunStack().display();
             simulatedTime.nextDay();
         }
 
