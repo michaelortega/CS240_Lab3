@@ -9,8 +9,6 @@ public class FoodInventory {
     private FoodStack<Integer> onionStack;
     private FoodStack<Integer> cheeseStack;
 
-    //addd waste
-
     public FoodInventory() {
         bunStack = new FoodStack<>(5);
         pattyStack = new FoodStack<>(4);

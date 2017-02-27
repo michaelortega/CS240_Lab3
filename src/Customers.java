@@ -36,18 +36,14 @@ public class Customers {
     }
 
     private void fillQueue(int randomCustomerNum) {
-        try {
-            for (int i = 0; i < randomCustomerNum; i++) {
-                if (lineQueue.isFull()) {
-                    break;
-                }
-                lineQueue.enqueue(generateOrder());
+
+        for (int i = 0; i < randomCustomerNum; i++) {
+            if (lineQueue.isFull()) {
+                break;
             }
-        } catch (IllegalStateException e) {
-            System.out.println("Line is full. Customers leaving . . . \n");
-        } finally {
-            lostCustomers = lostCustomers + randomCustomerNum - lineQueue.getNumberOfCustomers();
+            lineQueue.enqueue(generateOrder());
         }
+        lostCustomers = lostCustomers + randomCustomerNum - lineQueue.getNumberOfCustomers();
     }
 
     private int generateOrder() {
