@@ -1,4 +1,5 @@
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Random;
 
@@ -19,9 +20,8 @@ public class Testing<T extends Comparable<T>> {
 
 
     public static void main(String[] args) {
-        Date date = new Date();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("MMdd");
-        System.out.println(dateFormat.format(date));
+        Calendar calendar;
+        calendar.setTimeInMillis();
 
 
     }

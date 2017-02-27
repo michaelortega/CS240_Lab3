@@ -1,13 +1,20 @@
-import java.util.Date;
-
 public class Restaurant {
     public static void main(String[] args) {
-        SimulatedTime sTime = new SimulatedTime();
+        TimeAndDate sTime = new TimeAndDate();
         FoodInventory foodInventory = new FoodInventory();
         foodInventory.randomFillInventory(sTime.dateToInt()); // initial inventory amount
         Menu restaurantMenu = new Menu();
         Customers customers = new Customers();
 
+        int daysRunning = 1;
+        int hour = 9;
+        while (daysRunning <32){
+            while (hour <)
+
+
+
+            daysRunning++;
+        }
 
         try {
             //add number of customers for that hour

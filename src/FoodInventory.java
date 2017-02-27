@@ -83,7 +83,11 @@ public class FoodInventory {
 
     public void sortInventory(){
         bunStack.sortInventory();
-        //bunStack.display();
+        pattyStack.sortInventory();
+        lettuceStack.sortInventory();
+        tomatoStack.sortInventory();
+        onionStack.sortInventory();
+        cheeseStack.sortInventory();
     }
 
 }
