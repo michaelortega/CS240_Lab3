@@ -21,7 +21,7 @@ public class TimeAndDate {
     public TimeAndDate() {
         dateFormat = new SimpleDateFormat("MMddyyyy HH:mm");
         halfDateFormat = new SimpleDateFormat("MMddyyyy");
-        intFormat = new SimpleDateFormat("Mdd"); // changed Md
+        intFormat = new SimpleDateFormat("Mdd");
         timeFormat = new SimpleDateFormat("HH:mm");
         reportFormat = new SimpleDateFormat("MM-dd-yyyy");
         calendar = Calendar.getInstance();

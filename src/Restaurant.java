@@ -66,11 +66,3 @@ public class Restaurant {
 
     }
 }
-//            foodInventory.randomFillInventory(simulatedTime.dateToInt()); // reeeeeeee
-//
-//            System.out.println("**********************"); // remove
-//            foodInventory.getCheeseStack().display(); // remove aftr
-//            System.out.println("**************");
-//            //remove after testingvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-//            foodInventory.getCheeseStack().display();
-//            ///

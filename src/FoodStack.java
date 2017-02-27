@@ -132,4 +132,8 @@ public class FoodStack<T extends Comparable> implements StackInterface<T> {
     public void resetWastedCounter(){
         wastedFood=0;
     }
+
+    public int getWasted() {
+        return wastedFood;
+    }
 }

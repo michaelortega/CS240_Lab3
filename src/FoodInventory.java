@@ -11,7 +11,7 @@ public class FoodInventory {
 
     //addd waste
 
-    public FoodInventory(){
+    public FoodInventory() {
         bunStack = new FoodStack<>(5);
         pattyStack = new FoodStack<>(4);
         lettuceStack = new FoodStack<>(3);
@@ -21,13 +21,13 @@ public class FoodInventory {
     }
 
 
-    public void randomFillInventory(int date){ // pass date
+    public void randomFillInventory(int dateAdded) {
         Random rand = new Random();
-        for (int i = 0; i <6; i++){
-            int randomNumber = rand.nextInt(1001-700)+700; //(High-Low) + Low;   high(exclusive) low(inclusive) 700-1000
-            int[] newInventory = new int [randomNumber];
-            Arrays.fill(newInventory,date);
-            switch (i){
+        for (int i = 0; i < 6; i++) {
+            int randomNumber = rand.nextInt(1001 - 700) + 700; //(High-Low) + Low;   high(exclusive) low(inclusive) 700-1000
+            int[] newInventory = new int[randomNumber];
+            Arrays.fill(newInventory, dateAdded);
+            switch (i) {
                 case 0:
                     fillStack(bunStack, newInventory);
                     break;
@@ -54,16 +54,16 @@ public class FoodInventory {
 
 
         for (int i = 0; i < newInventory.length; i++) {
-            if (foodStack.isFull()){
+            if (foodStack.isFull()) {
                 break;
             }
             foodStack.push(newInventory[i]);
         }
 
-        }
+    }
 
 
-    public FoodStack getBunStack(){
+    public FoodStack getBunStack() {
         return bunStack;
     }
 
@@ -87,7 +87,7 @@ public class FoodInventory {
         return cheeseStack;
     }
 
-    public void sortInventory(){
+    public void sortInventory() {
         bunStack.sortInventory();
         pattyStack.sortInventory();
         lettuceStack.sortInventory();
@@ -96,7 +96,7 @@ public class FoodInventory {
         cheeseStack.sortInventory();
     }
 
-    public void removeExpired(int currentDate){
+    public void removeExpired(int currentDate) {
         bunStack.removeExpired(currentDate);
         pattyStack.removeExpired(currentDate);
         lettuceStack.removeExpired(currentDate);
@@ -105,11 +105,16 @@ public class FoodInventory {
         cheeseStack.removeExpired(currentDate);
     }
 
-    public void wastedFoodReport(){
-
+    public void wastedFoodReport() {
+        System.out.println("Buns Wasted:          " + bunStack.getWasted());
+        System.out.println("Patty Wasted:         " + pattyStack.getWasted());
+        System.out.println("Lettuce Wasted:       " + lettuceStack.getWasted());
+        System.out.println("Tomato Wasted:        " + tomatoStack.getWasted());
+        System.out.println("Onion Wasted:         " + onionStack.getWasted());
+        System.out.println("Cheese Wasted:        " + cheeseStack.getWasted());
     }
 
-    public void resetWasteCounters(){
+    public void resetWasteCounters() {
         bunStack.resetWastedCounter();
         pattyStack.resetWastedCounter();
         lettuceStack.resetWastedCounter();
