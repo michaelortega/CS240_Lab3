@@ -1,28 +1,47 @@
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Random;
 
 /**
  * Created by Michael on 2/25/2017.
  */
-public class Testing<T> {
-    int data;
-    public Testing(int data){
-        this.data = data;
+public class Testing<T extends Comparable<T>> {
+    int i =0;
+    T[] array;
+    public Testing(){
+        @SuppressWarnings("unchecked")
+        T[] temp = (T[]) new Comparable[5];
+        array = temp;
+
     }
 
 
 
 
     public static void main(String[] args) {
-//        FoodInventory foodInventory = new FoodInventory();
-//        foodInventory.randomFillInventory();
-//        Menu menuTest = new Menu();
-        Random random = new Random();
+        Date date = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MMdd");
+        System.out.println(dateFormat.format(date));
 
-        while (true){
-            System.out.println( random.nextInt(101-1)+ 1);
-        }
 
     }
+
+    private void add(T x) {
+        array[i] = x;
+        i++;
+    }
+    public void sort(){
+      //  QuickSort.sort(array);
+    }
+
+    public void display(){
+        for (T y: array){
+            System.out.print(y + " ");
+        }
+        System.out.println();
+    }
+
+
 }
 
 

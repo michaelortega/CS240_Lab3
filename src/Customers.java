@@ -25,8 +25,10 @@ public class Customers {
     }
 
     private void resetCustomers() {
-        lostCustomers = 0;
         lineQueue.clear();
+    }
+    public void resetLostCustomers(){
+        lostCustomers =0;
     }
 
     public int customerOrderSimulation(){
@@ -41,7 +43,7 @@ public class Customers {
         } catch (IllegalStateException e) {
             System.out.println("Line is full. Customers leaving . . . \n");
         } finally {
-            lostCustomers = randomCustomerNum - lineQueue.getNumberOfCustomers();
+            lostCustomers = lostCustomers + randomCustomerNum - lineQueue.getNumberOfCustomers();
         }
     }
 

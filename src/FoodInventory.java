@@ -21,9 +21,8 @@ public class FoodInventory {
     }
 
 
-    public void randomFillInventory(){ // pass date
+    public void randomFillInventory(int date){ // pass date
         Random rand = new Random();
-        int date = 225; // temp date!!!!!!!
         for (int i = 0; i <6; i++){
             int randomNumber = rand.nextInt(1001-700)+700; //(High-Low) + Low;   high(exclusive) low(inclusive) 700-1000
             int[] newInventory = new int [randomNumber];
@@ -82,7 +81,9 @@ public class FoodInventory {
         return cheeseStack;
     }
 
-    //add sort for exp
-
+    public void sortInventory(){
+        bunStack.sortInventory();
+        //bunStack.display();
+    }
 
 }

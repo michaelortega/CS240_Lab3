@@ -1,7 +1,10 @@
+import java.util.Date;
+
 public class Restaurant {
     public static void main(String[] args) {
+        SimulatedTime sTime = new SimulatedTime();
         FoodInventory foodInventory = new FoodInventory();
-        foodInventory.randomFillInventory(); // initial inventory amount
+        foodInventory.randomFillInventory(sTime.dateToInt()); // initial inventory amount
         Menu restaurantMenu = new Menu();
         Customers customers = new Customers();
 
@@ -36,8 +39,10 @@ public class Restaurant {
             System.out.println("All customers in line have been served . . .");
         }
 
+
         restaurantMenu.displayMenuCount();
         customers.lostCustomersDisplay();
+        foodInventory.sortInventory();
 
 
     }

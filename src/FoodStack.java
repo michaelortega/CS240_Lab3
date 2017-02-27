@@ -1,6 +1,6 @@
 import java.util.EmptyStackException;
 
-public class FoodStack<T> implements StackInterface<T> {
+public class FoodStack<T extends Comparable> implements StackInterface<T> {
     private T [] stack;
     private int topOfStack;
     private final int MAX_STORE_CAPACITY = 10000;
@@ -8,7 +8,7 @@ public class FoodStack<T> implements StackInterface<T> {
 
     public FoodStack(){
         @SuppressWarnings("unchecked")
-        T[] tempStack = (T[]) new Object[MAX_STORE_CAPACITY];
+        T[] tempStack = (T[]) new Comparable[MAX_STORE_CAPACITY];
         stack = tempStack;
         topOfStack = -1;
     }
@@ -77,5 +77,35 @@ public class FoodStack<T> implements StackInterface<T> {
         }
         topOfStack = -1;
     }
+
+    public int getNumberOfitems(){
+        return topOfStack;
+    } // removeeeeeee
+
+
+    public void sortInventory(){
+        this.insertionSort(stack);
+    }
+
+    public void insertionSort(T[] elems) {
+        int size = topOfStack;
+        for (int outerLoopIdx = 1; outerLoopIdx < size; ++outerLoopIdx) {
+            for (int innerLoopIdx = outerLoopIdx; innerLoopIdx > 0; --innerLoopIdx) {
+                if (elems[innerLoopIdx - 1].compareTo(elems[innerLoopIdx]) > 0) {
+                    T temp = elems[innerLoopIdx - 1];
+                    elems[innerLoopIdx - 1] = elems[innerLoopIdx];
+                    elems[innerLoopIdx] = temp;
+                }
+            }
+        }
+    }
+//
+//    public void display(){
+//        for (T i: stack){
+//            System.out.println(i + " ");
+//        }
+//        System.out.println();
+//    }
+
 
 }

@@ -55,7 +55,7 @@ public class Menu {
         menuItem4Ctr++;
     }
     public void menuItem5(FoodInventory foodInventory) {
-       cheeseBurgerList.useIngredients(foodInventory);
+       cheeseBurgerNoOnionList.useIngredients(foodInventory);
         menuItem5Ctr++;
     }
     public void menuItem6(FoodInventory foodInventory) {
@@ -70,6 +70,15 @@ public class Menu {
         System.out.println("Number 4 (Burger - No Onions)   Number of orders: " + menuItem4Ctr);
         System.out.println("Number 5 (Cheese Burger - No Onions)   Number of orders: " + menuItem5Ctr);
         System.out.println("Number 6 (Burger - No Tomato)   Number of orders: " + menuItem6Ctr);
+    }
+
+    public void resetCounters() {
+        menuItem1Ctr = 0;
+        menuItem2Ctr = 0;
+        menuItem3Ctr = 0;
+        menuItem4Ctr = 0;
+        menuItem5Ctr = 0;
+        menuItem6Ctr = 0;
     }
 
 

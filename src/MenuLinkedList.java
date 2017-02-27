@@ -206,7 +206,6 @@ public class MenuLinkedList<T> implements ListInterface<T> {
 
     /**
      * Checks weather this list is empty.
-     *
      * @return True if the list is empty, false if not.
      */
     @Override
@@ -237,9 +236,6 @@ public class MenuLinkedList<T> implements ListInterface<T> {
                 case Menu.CHEESE:
                     foodInventory.getCheeseStack().pop();
                     break;
-                default:
-                    System.out.println("I FAILED"); // remove later
-
             }
             currentNode = currentNode.getNextNode();
 
