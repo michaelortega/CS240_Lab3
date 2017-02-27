@@ -8,8 +8,8 @@ import java.util.Date;
 public class TimeAndDate {
     private Calendar calendar;
     private final String startDate = "03012017 09:00";
-    private final String endDate = "401"; // feb 1 // chanced 41
-    private final String closingTime = "21:00";
+    private final String endDate = "401"; // feb 1
+    private final String closingTime = "19:00"; // 7pm
     private Date date;
     private DateFormat dateFormat;
     private DateFormat intFormat;
@@ -75,10 +75,16 @@ public class TimeAndDate {
     }
 
 public static void main(String[] args) {
-    TimeAndDate t = new TimeAndDate();
-    t.print();
-    t.print();
-    t.print();
+    TimeAndDate simulatedTime = new TimeAndDate();
+    int i =0;
+    while (i ==0) {
+        while (!simulatedTime.isOpen()) {
+            i++;
+            simulatedTime.nextHour();
+        }
+        simulatedTime.nextDay();
+    }
+    System.out.println(i);
 }
 
     public boolean isRestockTime(){

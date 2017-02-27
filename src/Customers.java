@@ -26,18 +26,19 @@ public class Customers {
     private void resetCustomers() {
         lineQueue.clear();
     }
-    public void resetLostCustomers(){
-        lostCustomers =0;
+
+    public void resetLostCustomers() {
+        lostCustomers = 0;
     }
 
-    public int customerOrderSimulation(){
-       return lineQueue.dequeue();
+    public int customerOrderSimulation() {
+        return lineQueue.dequeue();
     }
 
     private void fillQueue(int randomCustomerNum) {
         try {
             for (int i = 0; i < randomCustomerNum; i++) {
-                if (lineQueue.isFull()){
+                if (lineQueue.isFull()) {
                     break;
                 }
                 lineQueue.enqueue(generateOrder());
@@ -53,7 +54,7 @@ public class Customers {
         return random.nextInt(7 - 1) + 1;
     }
 
-    public void lostCustomersDisplay(){
+    public void lostCustomersDisplay() {
         System.out.println("Number of lost customers: " + lostCustomers);
     }
 

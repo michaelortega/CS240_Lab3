@@ -20,7 +20,6 @@ public class FoodInventory {
         cheeseStack = new FoodStack<>(2);
     }
 
-
     public void randomFillInventory(int dateAdded) {
         Random rand = new Random();
         for (int i = 0; i < 6; i++) {
@@ -61,7 +60,6 @@ public class FoodInventory {
         }
 
     }
-
 
     public FoodStack getBunStack() {
         return bunStack;

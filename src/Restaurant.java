@@ -7,9 +7,9 @@ public class Restaurant {
         int shipmentCounter = 0;
         while (!simulatedTime.isEndOfMarch()) {
             while (!simulatedTime.isOpen()) {
-                if (simulatedTime.isRestockTime() && shipmentCounter ==3){
+                if (simulatedTime.isRestockTime() && shipmentCounter == 3) {
                     foodInventory.randomFillInventory(simulatedTime.dateToInt());
-                    shipmentCounter=0;
+                    shipmentCounter = 0;
                 }
                 customers.addCustomersToLine();
                 while (!customers.isLineEmpty()) {
@@ -43,8 +43,8 @@ public class Restaurant {
             foodInventory.sortInventory();
             foodInventory.removeExpired(simulatedTime.dateToInt());
 
-           //print daily report
-            System.out.println("******************REPORT FOR "+ simulatedTime.getReportDate()+" ***************************");
+            //print daily report
+            System.out.println("******************REPORT FOR " + simulatedTime.getReportDate() + " ***************************");
             System.out.println("                     *ORDER REPORT*                            ");
             restaurantMenu.displayMenuCount();
             System.out.println("                     *LOST CUSTOMERS REPORT*                            ");
@@ -60,8 +60,6 @@ public class Restaurant {
             shipmentCounter++;
             simulatedTime.nextDay();
         }
-
-
 
 
     }
