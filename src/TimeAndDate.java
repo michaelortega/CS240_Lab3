@@ -63,29 +63,11 @@ public class TimeAndDate {
         return closingTime.equals(timeFormat.format(date));
     }
 
-
-    public void print() {
-        //System.out.println(dateFormat.format(date));
-        //calendar.setTime(date);
-        System.out.println(dateToInt());
-    }
-
     public String getDate() {
         return intFormat.format(date);
     }
 
-public static void main(String[] args) {
-    TimeAndDate simulatedTime = new TimeAndDate();
-    int i =0;
-    while (i ==0) {
-        while (!simulatedTime.isOpen()) {
-            i++;
-            simulatedTime.nextHour();
-        }
-        simulatedTime.nextDay();
-    }
-    System.out.println(i);
-}
+
 
     public boolean isRestockTime(){
         return timeFormat.format(date).equals("09:00");

@@ -123,9 +123,6 @@ public class FoodStack<T extends Comparable> implements StackInterface<T> {
                 pop();
                 wastedFood++;
             }
-//            if (stack[top].compareTo(currentDate) == 0){
-//                break;
-//            }
         }
     }
 
