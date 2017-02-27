@@ -5,13 +5,16 @@ public class FoodStack<T extends Comparable> implements StackInterface<T> {
     private T [] stack;
     private int topOfStack;
     private final int MAX_STORE_CAPACITY = 10000;
+    private int daysTillExpire;
+    private int wastedFood;
 
-
-    public FoodStack(){
+    public FoodStack(int daysTillExpire){
         @SuppressWarnings("unchecked")
         T[] tempStack = (T[]) new Comparable[MAX_STORE_CAPACITY];
         stack = tempStack;
         topOfStack = -1;
+        this.daysTillExpire = daysTillExpire;
+        wastedFood =0;
     }
     /**
      * Adds a new entry to the top of this stack.
@@ -113,4 +116,20 @@ public class FoodStack<T extends Comparable> implements StackInterface<T> {
     }
 
 
+    public void removeExpired(int currentDate) {
+        int lowestExpirationDate = currentDate - daysTillExpire;
+        for (int top =topOfStack; top>0; top--){
+            if ((stack[top].compareTo(lowestExpirationDate) <= 0) && !isEmpty()){
+                pop();
+                wastedFood++;
+            }
+//            if (stack[top].compareTo(currentDate) == 0){
+//                break;
+//            }
+        }
+    }
+
+    public void resetWastedCounter(){
+        wastedFood=0;
+    }
 }

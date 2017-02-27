@@ -8,7 +8,7 @@ import java.util.Date;
 public class TimeAndDate {
     private Calendar calendar;
     private final String startDate = "03012017 09:00";
-    private final String endDate = "41"; // feb 1
+    private final String endDate = "401"; // feb 1 // chanced 41
     private final String closingTime = "21:00";
     private Date date;
     private DateFormat dateFormat;
@@ -21,7 +21,7 @@ public class TimeAndDate {
     public TimeAndDate() {
         dateFormat = new SimpleDateFormat("MMddyyyy HH:mm");
         halfDateFormat = new SimpleDateFormat("MMddyyyy");
-        intFormat = new SimpleDateFormat("Md");
+        intFormat = new SimpleDateFormat("Mdd"); // changed Md
         timeFormat = new SimpleDateFormat("HH:mm");
         reportFormat = new SimpleDateFormat("MM-dd-yyyy");
         calendar = Calendar.getInstance();

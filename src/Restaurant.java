@@ -7,7 +7,6 @@ public class Restaurant {
         int shipmentCounter = 0;
         while (!simulatedTime.isEndOfMarch()) {
             while (!simulatedTime.isOpen()) {
-                //add number of customers for that hour
                 if (simulatedTime.isRestockTime() && shipmentCounter ==3){
                     foodInventory.randomFillInventory(simulatedTime.dateToInt());
                     shipmentCounter=0;
@@ -39,17 +38,26 @@ public class Restaurant {
 
                 simulatedTime.nextHour();
             }
-            foodInventory.randomFillInventory(simulatedTime.dateToInt());
+
+            //sort and remove expired
+            foodInventory.sortInventory();
+            foodInventory.removeExpired(simulatedTime.dateToInt());
+
+           //print daily report
             System.out.println("******************REPORT FOR "+ simulatedTime.getReportDate()+" ***************************");
             System.out.println("                     *ORDER REPORT*                            ");
             restaurantMenu.displayMenuCount();
-
             System.out.println("                     *LOST CUSTOMERS REPORT*                            ");
             customers.lostCustomersDisplay();
-            foodInventory.sortInventory();
+            System.out.println("                    *WASTED FOOD REPORT*                ");
+            foodInventory.wastedFoodReport();
+
+            //reset counters
+            customers.resetLostCustomers();
+            restaurantMenu.resetCounters();
+            foodInventory.resetWasteCounters();
+
             shipmentCounter++;
-            //remove after testing
-            foodInventory.getBunStack().display();
             simulatedTime.nextDay();
         }
 
@@ -58,3 +66,11 @@ public class Restaurant {
 
     }
 }
+//            foodInventory.randomFillInventory(simulatedTime.dateToInt()); // reeeeeeee
+//
+//            System.out.println("**********************"); // remove
+//            foodInventory.getCheeseStack().display(); // remove aftr
+//            System.out.println("**************");
+//            //remove after testingvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+//            foodInventory.getCheeseStack().display();
+//            ///

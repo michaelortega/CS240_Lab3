@@ -12,12 +12,12 @@ public class FoodInventory {
     //addd waste
 
     public FoodInventory(){
-        bunStack = new FoodStack<>();
-        pattyStack = new FoodStack<>();
-        lettuceStack = new FoodStack<>();
-        tomatoStack = new FoodStack<>();
-        onionStack = new FoodStack<>();
-        cheeseStack = new FoodStack<>();
+        bunStack = new FoodStack<>(5);
+        pattyStack = new FoodStack<>(4);
+        lettuceStack = new FoodStack<>(3);
+        tomatoStack = new FoodStack<>(3);
+        onionStack = new FoodStack<>(5);
+        cheeseStack = new FoodStack<>(2);
     }
 
 
@@ -94,6 +94,28 @@ public class FoodInventory {
         tomatoStack.sortInventory();
         onionStack.sortInventory();
         cheeseStack.sortInventory();
+    }
+
+    public void removeExpired(int currentDate){
+        bunStack.removeExpired(currentDate);
+        pattyStack.removeExpired(currentDate);
+        lettuceStack.removeExpired(currentDate);
+        tomatoStack.removeExpired(currentDate);
+        onionStack.removeExpired(currentDate);
+        cheeseStack.removeExpired(currentDate);
+    }
+
+    public void wastedFoodReport(){
+
+    }
+
+    public void resetWasteCounters(){
+        bunStack.resetWastedCounter();
+        pattyStack.resetWastedCounter();
+        lettuceStack.resetWastedCounter();
+        tomatoStack.resetWastedCounter();
+        onionStack.resetWastedCounter();
+        cheeseStack.resetWastedCounter();
     }
 
 }

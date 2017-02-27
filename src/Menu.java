@@ -86,7 +86,5 @@ public class Menu {
         menuItem6Ctr = 0;
     }
 
-
-    // reset day aka counters
 }
 
