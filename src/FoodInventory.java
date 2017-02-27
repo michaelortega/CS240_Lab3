@@ -1,9 +1,6 @@
 import java.util.Arrays;
 import java.util.Random;
 
-/**
- * Created by Michael on 2/25/2017.
- */
 public class FoodInventory {
     private FoodStack<Integer> bunStack;
     private FoodStack<Integer> pattyStack;

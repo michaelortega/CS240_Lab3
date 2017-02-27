@@ -78,8 +78,4 @@ public class FoodStack<T> implements StackInterface<T> {
         topOfStack = -1;
     }
 
-    public int forTesting(){
-        return topOfStack;
-    } // removeeeeeeee
-
 }

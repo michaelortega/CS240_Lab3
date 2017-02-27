@@ -4,22 +4,33 @@ public class Customers {
     private int lostCustomers;
     private LineQueue<Integer> lineQueue;
     private Random random;
+    private int randomCustomerNumber; // number of customers for the hour
 
     public Customers() {
         lostCustomers = 0;
+        randomCustomerNumber = 0;
         lineQueue = new LineQueue<>();
         random = new Random();
     }
 
     public int numberOfCustomers() {
-        int numberOfCustomers = random.nextInt(101 - 1) + 1;
-        return numberOfCustomers;
+        return random.nextInt(101 - 1) + 1;
     }
 
-    public void simulateCustomers() {
-        int randomCustomerNumber = numberOfCustomers();
+    public void addCustomersToLine() {
+        resetCustomers();
+        randomCustomerNumber = numberOfCustomers();
+        System.out.println("Number of customers entering: " + randomCustomerNumber + "\n");
         fillQueue(randomCustomerNumber);
+    }
 
+    private void resetCustomers() {
+        lostCustomers = 0;
+        lineQueue.clear();
+    }
+
+    public int customerOrderSimulation(){
+       return lineQueue.dequeue();
     }
 
     private void fillQueue(int randomCustomerNum) {
@@ -28,7 +39,7 @@ public class Customers {
                 lineQueue.enqueue(generateOrder());
             }
         } catch (IllegalStateException e) {
-            System.out.println("Line is full.");
+            System.out.println("Line is full. Customers leaving . . . \n");
         } finally {
             lostCustomers = randomCustomerNum - lineQueue.getNumberOfCustomers();
         }
@@ -36,6 +47,10 @@ public class Customers {
 
     private int generateOrder() {
         return random.nextInt(7 - 1) + 1;
+    }
+
+    public void lostCustomersDisplay(){
+        System.out.println("Number of lost customers: " + lostCustomers);
     }
 
 }
