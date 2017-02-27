@@ -1,7 +1,7 @@
 public class LineQueue<T> implements QueueInterface<T> {
     private Node tail;
     private Node head;
-    private final int MAX_LINE_CAPACITY = 50;
+    private final int MAX_LINE_CAPACITY = 50; // number of customers line can hold
     private int numberOfCustomers;
     public LineQueue() {
         numberOfCustomers = 0;
