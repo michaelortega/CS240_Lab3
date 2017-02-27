@@ -1,9 +1,10 @@
 import java.util.EmptyStackException;
+import java.util.NoSuchElementException;
 
 public class FoodStack<T extends Comparable> implements StackInterface<T> {
     private T [] stack;
     private int topOfStack;
-    private final int MAX_STORE_CAPACITY = 10000;
+    private final int MAX_STORE_CAPACITY = 5000;
 
 
     public FoodStack(){
@@ -19,9 +20,8 @@ public class FoodStack<T extends Comparable> implements StackInterface<T> {
      */
     @Override
     public void push(T newEntry) {
-        if (topOfStack < MAX_STORE_CAPACITY){
-            stack[++topOfStack] = newEntry;
-        }
+            stack[topOfStack + 1] = newEntry;
+            topOfStack++;
     }
 
     /**
@@ -31,9 +31,9 @@ public class FoodStack<T extends Comparable> implements StackInterface<T> {
      * @throws EmptyStackException if the stack is empty before the operation.
      */
     @Override
-    public T pop() {
+    public T pop(){
         if (isEmpty()){
-            throw new EmptyStackException();
+            throw new NoSuchElementException();
         } else {
             T temp = stack[topOfStack];
             stack[topOfStack--] = null;
@@ -98,6 +98,10 @@ public class FoodStack<T extends Comparable> implements StackInterface<T> {
                 }
             }
         }
+    }
+
+    public boolean isFull() {
+        return (topOfStack+1)==MAX_STORE_CAPACITY;
     }
 //
 //    public void display(){

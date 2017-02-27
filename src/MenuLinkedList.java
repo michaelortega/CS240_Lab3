@@ -1,4 +1,4 @@
-
+import java.util.NoSuchElementException;
 
 public class MenuLinkedList<T> implements ListInterface<T> {
     private Node head;
@@ -213,32 +213,36 @@ public class MenuLinkedList<T> implements ListInterface<T> {
         return head == null;
     }
 
-    public void useIngredients(FoodInventory foodInventory) {
+    public void useIngredients(FoodInventory foodInventory, Customers customers) {
         Node currentNode = head;
-        while (currentNode != null){
+        while (currentNode != null) {
             String ingredientName = currentNode.getData().toString();
-            switch (ingredientName){
-                case Menu.BUN:
-                    foodInventory.getBunStack().pop();
-                    break;
-                case Menu.PATTY:
-                    foodInventory.getPattyStack().pop();
-                    break;
-                case Menu.LETTUCE:
-                    foodInventory.getLettuceStack().pop();
-                    break;
-                case Menu.TOMATO:
-                    foodInventory.getTomatoStack().pop();
-                    break;
-                case Menu.ONION:
-                    foodInventory.getOnionStack().pop();
-                    break;
-                case Menu.CHEESE:
-                    foodInventory.getCheeseStack().pop();
-                    break;
+            try {
+                switch (ingredientName) {
+                    case Menu.BUN:
+                        foodInventory.getBunStack().pop();
+                        break;
+                    case Menu.PATTY:
+                        foodInventory.getPattyStack().pop();
+                        break;
+                    case Menu.LETTUCE:
+                        foodInventory.getLettuceStack().pop();
+                        break;
+                    case Menu.TOMATO:
+                        foodInventory.getTomatoStack().pop();
+                        break;
+                    case Menu.ONION:
+                        foodInventory.getOnionStack().pop();
+                        break;
+                    case Menu.CHEESE:
+                        foodInventory.getCheeseStack().pop();
+                        break;
+                }
+            } catch (EmptyQueueException | NoSuchElementException eQ) {
+                customers.addLostCustomer();
+            } finally {
+                currentNode = currentNode.getNextNode();
             }
-            currentNode = currentNode.getNextNode();
-
         }
     }
 

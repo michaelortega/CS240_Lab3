@@ -93,6 +93,10 @@ public class LineQueue<T> implements QueueInterface<T> {
         return numberOfCustomers;
     }
 
+    public boolean isFull() {
+        return numberOfCustomers == MAX_LINE_CAPACITY;
+    }
+
 
     private class Node {
         private T data;

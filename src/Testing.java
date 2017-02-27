@@ -1,3 +1,5 @@
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -19,9 +21,49 @@ public class Testing<T extends Comparable<T>> {
 
 
 
-    public static void main(String[] args) {
-        Calendar calendar;
-        calendar.setTimeInMillis();
+    public static void main(String[] args) throws ParseException {
+        Calendar cal = Calendar.getInstance();
+        DateFormat dateFormat = new SimpleDateFormat("MMddyyyy HH:mm");
+         String startDate = "03012017 09:00";
+        Date date = dateFormat.parse(startDate);
+        cal.setTime(date);
+        System.out.println("Current Date Time : " + dateFormat.format(cal.getTime()));
+
+        cal.add(Calendar.DATE, 1);
+        System.out.println("Add one day to current date : " + dateFormat.format(cal.getTime()));
+
+        cal.add(Calendar.MONTH, 1);
+        System.out.println("Add one month to current date : " + dateFormat.format(cal.getTime()));
+
+        cal.add(Calendar.YEAR, 1);
+        System.out.println("Add one year to current date : " + dateFormat.format(cal.getTime()));
+
+        cal.add(Calendar.HOUR, 1);
+        System.out.println("Add one hour to current date : " + dateFormat.format(cal.getTime()));
+
+        cal.add(Calendar.MINUTE, 1);
+        System.out.println("Add one minute to current date : " + dateFormat.format(cal.getTime()));
+
+        cal.add(Calendar.SECOND, 1);
+        System.out.println("Add one second to current date : " + dateFormat.format(cal.getTime()));
+
+        cal.add(Calendar.DATE, -1);
+        System.out.println("Subtract one day from current date : " + dateFormat.format(cal.getTime()));
+
+        cal.add(Calendar.MONTH, -1);
+        System.out.println("Subtract one month from current date : " + dateFormat.format(cal.getTime()));
+
+        cal.add(Calendar.YEAR, -1);
+        System.out.println("Subtract one year from current date : " + dateFormat.format(cal.getTime()));
+
+        cal.add(Calendar.HOUR, -1);
+        System.out.println("Subtract one hour from current date : " + dateFormat.format(cal.getTime()));
+
+        cal.add(Calendar.MINUTE, -1);
+        System.out.println("Subtract one minute from current date : " + dateFormat.format(cal.getTime()));
+
+        cal.add(Calendar.SECOND, -1);
+        System.out.println("Subtract one second from current date : " + dateFormat.format(cal.getTime()));
 
 
     }

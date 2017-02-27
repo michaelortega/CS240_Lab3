@@ -20,7 +20,7 @@ public class Customers {
     public void addCustomersToLine() {
         resetCustomers();
         randomCustomerNumber = numberOfCustomers();
-        System.out.println("Number of customers entering: " + randomCustomerNumber + "\n");
+        //System.out.println("Number of customers entering: " + randomCustomerNumber);
         fillQueue(randomCustomerNumber);
     }
 
@@ -38,6 +38,9 @@ public class Customers {
     private void fillQueue(int randomCustomerNum) {
         try {
             for (int i = 0; i < randomCustomerNum; i++) {
+                if (lineQueue.isFull()){
+                    break;
+                }
                 lineQueue.enqueue(generateOrder());
             }
         } catch (IllegalStateException e) {
@@ -51,8 +54,15 @@ public class Customers {
         return random.nextInt(7 - 1) + 1;
     }
 
-    public void lostCustomersDisplay(){
+    public void lostCustomersDisplay(String date){
         System.out.println("Number of lost customers: " + lostCustomers);
     }
 
+    public void addLostCustomer() {
+        lostCustomers++;
+    }
+
+    public boolean isLineEmpty() {
+        return lineQueue.isEmpty();
+    }
 }

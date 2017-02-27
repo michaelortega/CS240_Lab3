@@ -37,30 +37,35 @@ public class Menu {
 
     }
 
-    public void menuItem1(FoodInventory foodInventory) {
-        burgerList.useIngredients(foodInventory);
-        menuItem1Ctr++;
+    public void menuItem1(FoodInventory foodInventory, Customers customers) {
+            burgerList.useIngredients(foodInventory,customers);
+            menuItem1Ctr++;
     }
 
-    public void menuItem2(FoodInventory foodInventory) {
-        cheeseBurgerList.useIngredients(foodInventory);
-        menuItem2Ctr++;
+    public void menuItem2(FoodInventory foodInventory, Customers customers) {
+            cheeseBurgerList.useIngredients(foodInventory,customers);
+            menuItem2Ctr++;
     }
-    public void menuItem3(FoodInventory foodInventory) {
-        veganBurgerList.useIngredients(foodInventory);
-        menuItem3Ctr++;
+
+    public void menuItem3(FoodInventory foodInventory, Customers customers) {
+            veganBurgerList.useIngredients(foodInventory,customers);
+            menuItem3Ctr++;
+            customers.addLostCustomer();
     }
-    public void menuItem4(FoodInventory foodInventory) {
-        burgerNoOnionList.useIngredients(foodInventory);
-        menuItem4Ctr++;
+
+    public void menuItem4(FoodInventory foodInventory, Customers customers) {
+            burgerNoOnionList.useIngredients(foodInventory,customers);
+            menuItem4Ctr++;
     }
-    public void menuItem5(FoodInventory foodInventory) {
-       cheeseBurgerNoOnionList.useIngredients(foodInventory);
-        menuItem5Ctr++;
+
+    public void menuItem5(FoodInventory foodInventory, Customers customers) {
+            cheeseBurgerNoOnionList.useIngredients(foodInventory,customers);
+            menuItem5Ctr++;
     }
-    public void menuItem6(FoodInventory foodInventory) {
-        burgerNoTomatoList.useIngredients(foodInventory);
-        menuItem6Ctr++;
+
+    public void menuItem6(FoodInventory foodInventory, Customers customers) {
+            burgerNoTomatoList.useIngredients(foodInventory,customers);
+            menuItem6Ctr++;
     }
 
     public void displayMenuCount(){ //pass in date
